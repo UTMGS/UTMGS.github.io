@@ -1,3 +1,9 @@
+.social-links {
+  display: grid;
+  gap: 0.65rem;
+  width: min(100%, 18rem);
+}
+
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -41,6 +47,18 @@
   height: 1rem;
 }
 
+.social-link__mark--large {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex-basis: 2.4rem;
+  border-radius: 0;
+}
+
+.social-link__mark--large .social-link__logo {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 .social-link__copy {
   display: grid;
   gap: 0.15rem;
@@ -61,7 +79,11 @@
 
 .social-link:hover .social-link__arrow,
 .social-link:focus-visible .social-link__arrow {
-  transform: translate(2px, -2px);
+  transform: translateX(3px);
+}
+
+.social-link__arrow--line {
+  font-size: 1.25rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

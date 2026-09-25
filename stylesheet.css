@@ -16,15 +16,18 @@ body {
 
 .page {
   --page-padding: clamp(1rem, 4vw, 3rem);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   min-height: 100dvh;
   place-items: center;
   padding: var(--page-padding);
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
 }
 
 .logo {
   display: block;
-  width: min(100%, calc(100dvh - var(--page-padding) - var(--page-padding)));
+  width: min(100%, calc(100dvh - 9rem));
   max-width: 64rem;
   height: auto;
   aspect-ratio: 1;

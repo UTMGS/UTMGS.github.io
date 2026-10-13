@@ -33,3 +33,24 @@ body {
   aspect-ratio: 1;
   object-fit: contain;
 }
+
+.acknowledgment {
+  text-align: center;
+}
+
+.acknowledgment h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.acknowledgment ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #777;
+  font-size: 0.8rem;
+  list-style: none;
+}

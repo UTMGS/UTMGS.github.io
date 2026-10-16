@@ -1,23 +1,16 @@
 backend:
-  name: github
-  repo: UTMGS/UTMGS.github.io
-  branch: main
+  name: git-gateway
+  branch: main # または master など、利用しているブランチ名
 
-media_folder: assets/uploads
-public_folder: /assets/uploads
+# メディア（画像など）の保存先パス（例: assets/images 内に保存する場合）
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
-  - name: pages
-    label: ページ
-    folder: content/pages
-    create: true
-    slug: "{{slug}}"
-    extension: md
-    format: frontmatter
-    fields:
-      - name: title
-        label: タイトル
-        widget: string
-      - name: body
-        label: 本文
-        widget: markdown
+  - name: "blog"
+  - label: "ブログ記事"
+  - folder: "content/blog" # 記事Markdownを保存するフォルダ（お好みに合わせて変更してください）
+  - create: true
+  - fields:
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "本文", name: "body", widget: "markdown"}

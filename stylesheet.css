@@ -127,9 +127,20 @@ body {
   font-weight: 600;
 }
 
+.acknowledgment__group + .acknowledgment__group {
+  margin-top: 0.75rem;
+}
+
+.acknowledgment__group h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .acknowledgment ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: 0;
   padding: 0;

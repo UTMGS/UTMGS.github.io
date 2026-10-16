@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: UTMGS/UTMGS.github.io
+  branch: main
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: pages
+    label: ページ
+    folder: content/pages
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - name: title
+        label: タイトル
+        widget: string
+      - name: body
+        label: 本文
+        widget: markdown

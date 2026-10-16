@@ -1,16 +1,17 @@
 backend:
-  name: git-gateway
-  branch: main # または master など、利用しているブランチ名
+  name: github
+  repo: UTMGS/UTMGS.github.io # 例: UTMGS/utmgs.com など
+  branch: main
+  auth_type: pkce # または implicit (通常は pkce を推奨)
 
-# メディア（画像など）の保存先パス（例: assets/images 内に保存する場合）
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
   - name: "blog"
-  - label: "ブログ記事"
-  - folder: "content/blog" # 記事Markdownを保存するフォルダ（お好みに合わせて変更してください）
-  - create: true
-  - fields:
+    label: "ブログ記事"
+    folder: "content/blog"
+    create: true
+    fields:
       - {label: "タイトル", name: "title", widget: "string"}
       - {label: "本文", name: "body", widget: "markdown"}

@@ -2,6 +2,44 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: light;
+  --page-background: #fff;
+  --text-color: #111;
+  --muted-color: #777;
+  --surface-color: #fff;
+  --border-color: #d7d7d7;
+  --hover-border-color: #111;
+  --focus-color: #111;
+  --hover-shadow: rgb(0 0 0 / 10%);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-background: #121212;
+  --text-color: #f2f2f2;
+  --muted-color: #aaa;
+  --surface-color: #1d1d1d;
+  --border-color: #444;
+  --hover-border-color: #f2f2f2;
+  --focus-color: #f2f2f2;
+  --hover-shadow: rgb(0 0 0 / 35%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --page-background: #121212;
+    --text-color: #f2f2f2;
+    --muted-color: #aaa;
+    --surface-color: #1d1d1d;
+    --border-color: #444;
+    --hover-border-color: #f2f2f2;
+    --focus-color: #f2f2f2;
+    --hover-shadow: rgb(0 0 0 / 35%);
+  }
+}
+
 html,
 body {
   width: 100%;
@@ -11,7 +49,40 @@ body {
 
 body {
   min-height: 100dvh;
-  background: #fff;
+  color: var(--text-color);
+  background: var(--page-background);
+}
+
+.theme-toggle {
+  position: fixed;
+  z-index: 1;
+  top: clamp(0.75rem, 2vw, 1.25rem);
+  right: clamp(0.75rem, 2vw, 1.25rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.65rem;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--surface-color);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--hover-border-color);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .page {
@@ -27,9 +98,42 @@ body {
 
 .logo {
   display: block;
-  width: min(100%, calc(100dvh - 9rem));
+  width: min(100%, calc(100dvh - 26rem));
   max-width: 64rem;
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
+}
+
+:root[data-theme="dark"] .logo {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .logo {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+}
+
+.acknowledgment {
+  text-align: center;
+}
+
+.acknowledgment h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.acknowledgment ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  color: var(--muted-color);
+  font-size: 0.8rem;
+  list-style: none;
 }

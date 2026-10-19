@@ -59,6 +59,14 @@
   height: 1.2rem;
 }
 
+.social-link__mark--note {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex-basis: 2.4rem;
+  background: #41c9b4;
+  font: 700 0.65rem/1 sans-serif;
+}
+
 .social-link__copy {
   display: grid;
   gap: 0.15rem;
@@ -79,11 +87,7 @@
 
 .social-link:hover .social-link__arrow,
 .social-link:focus-visible .social-link__arrow {
-  transform: translateX(3px);
-}
-
-.social-link__arrow--line {
-  font-size: 1.25rem;
+  transform: translate(2px, -2px);
 }
 
 @media (prefers-reduced-motion: reduce) {

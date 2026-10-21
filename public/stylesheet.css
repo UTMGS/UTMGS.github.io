@@ -121,9 +121,9 @@ body {
   text-align: center;
 }
 
-.acknowledgment h2 {
+.acknowledgment > h1 {
   margin: 0 0 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -131,9 +131,9 @@ body {
   margin-top: 0.75rem;
 }
 
-.acknowledgment__group h3 {
+.acknowledgment__group h2 {
   margin: 0 0 0.35rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 

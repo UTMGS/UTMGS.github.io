@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+---
+<SiteLayout title="ブログ | UTMGS" description="UTMGSのブログ記事一覧です。" showNav>
+	<main class="content-page">
+		<h1>ブログ</h1>
+		<p class="content-page__intro">UTMGSからのお知らせや活動についてお届けします。</p>
+		{posts.length > 0 ? (
+			<ul class="post-list">
+				{posts.map((post) => (
+					<li>
+						<a class="post-card" href={`/blog/${post.id}/`}>
+							<time datetime={post.data.pubDate.toISOString()}>
+								{post.data.pubDate.toLocaleDateString('ja-JP', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+									timeZone: 'Asia/Tokyo',
+								})}
+							</time>
+							<h2>{post.data.title}</h2>
+							<p>{post.data.description}</p>
+						</a>
+					</li>
+				))}
+			</ul>
+		) : (
+			<p>記事はまだありません。</p>
+		)}
+	</main>
+</SiteLayout>

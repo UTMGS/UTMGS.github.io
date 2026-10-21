@@ -1,0 +1,86 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	showNav?: boolean;
+}
+
+const {
+	title = 'UTMGS',
+	description = 'UTMGSの公式サイトです。',
+	showNav = false,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<script is:inline>
+			try {
+				const savedTheme = localStorage.getItem("theme");
+				if (savedTheme === "light" || savedTheme === "dark") {
+					document.documentElement.dataset.theme = savedTheme;
+				} else {
+					document.documentElement.dataset.theme = "dark";
+				}
+			} catch (error) {
+				document.documentElement.dataset.theme = "dark";
+				console.warn("テーマ設定を読み込めませんでした。", error);
+			}
+		</script>
+		<link rel="stylesheet" href="/stylesheet.css" />
+		<link rel="stylesheet" href="/social-links.css" />
+		<link rel="stylesheet" href="/blog.css" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+	</head>
+	<body>
+		<button class="theme-toggle" type="button" aria-pressed="false">
+			<span class="theme-toggle__icon" aria-hidden="true">☾</span>
+			<span class="theme-toggle__label">Dark mode</span>
+		</button>
+		{showNav && (
+			<header class="site-header">
+				<a href="/" class="site-header__brand">UTMGS</a>
+				<nav aria-label="メインナビゲーション">
+					<a href="/blog/">ブログ</a>
+				</nav>
+			</header>
+		)}
+		<slot />
+		<script is:inline>
+			const themeToggle = document.querySelector(".theme-toggle");
+			const themeLabel = themeToggle.querySelector(".theme-toggle__label");
+			const themeIcon = themeToggle.querySelector(".theme-toggle__icon");
+
+			function updateThemeToggle() {
+				const isDark = document.documentElement.dataset.theme
+					? document.documentElement.dataset.theme === "dark"
+					: window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+				themeToggle.setAttribute("aria-pressed", String(isDark));
+				themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+				themeIcon.textContent = isDark ? "☀" : "☾";
+			}
+
+			themeToggle.addEventListener("click", () => {
+				const nextTheme = themeToggle.getAttribute("aria-pressed") === "true"
+					? "light"
+					: "dark";
+				document.documentElement.dataset.theme = nextTheme;
+				updateThemeToggle();
+
+				try {
+					localStorage.setItem("theme", nextTheme);
+				} catch (error) {
+					console.warn("テーマ設定を保存できませんでした。", error);
+				}
+			});
+
+			updateThemeToggle();
+		</script>
+	</body>
+</html>

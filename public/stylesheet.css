@@ -48,7 +48,8 @@ body {
 }
 
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
+  min-height: 100svh;
   color: var(--text-color);
   background: var(--page-background);
 }
@@ -89,7 +90,8 @@ body {
   --page-padding: clamp(1rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  min-height: 100vh;
+  min-height: 100svh;
   place-items: center;
   padding: var(--page-padding);
   justify-content: center;
@@ -98,7 +100,7 @@ body {
 
 .logo {
   display: block;
-  width: min(100%, calc(100dvh - 26rem));
+  width: min(100%, 64rem);
   max-width: 64rem;
   height: auto;
   aspect-ratio: 1;

@@ -1,5 +1,6 @@
 .site-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   max-width: 56rem;
@@ -14,8 +15,36 @@
 }
 
 .site-header__brand {
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header__logo {
+  display: block;
+  width: 7rem;
+  height: 2rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+:root[data-theme="dark"] .site-header__logo {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .site-header__logo {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .site-header nav a {

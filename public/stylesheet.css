@@ -107,6 +107,10 @@ body {
   object-fit: contain;
 }
 
+.page--acknowledgment .logo {
+  width: min(100%, 18rem);
+}
+
 :root[data-theme="dark"] .logo {
   filter: invert(1);
   mix-blend-mode: screen;

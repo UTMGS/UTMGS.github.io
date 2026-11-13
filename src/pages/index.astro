@@ -1,8 +1,29 @@
 ---
+import { getCollection } from 'astro:content';
 import SiteLayout from '../layouts/SiteLayout.astro';
+
+const latestPost = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+)[0];
 ---
 <SiteLayout title="UTMGS" description="UTMGSの公式サイトです。" showNav>
 	<main class="page page--home">
 		<img src="/assets/brand/logo.jpg" alt="UTMGS ロゴ" class="logo" />
+		{latestPost && (
+			<p class="page--home__latest">
+				<a href={`/blog/${latestPost.id}/`}>
+					最新記事：
+					<time datetime={latestPost.data.pubDate.toISOString()}>
+						{latestPost.data.pubDate.toLocaleDateString('ja-JP', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+							timeZone: 'Asia/Tokyo',
+						})}
+					</time>&nbsp;|&nbsp;
+					{latestPost.data.title}
+				</a>
+			</p>
+		)}
 	</main>
 </SiteLayout>

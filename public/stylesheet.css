@@ -110,6 +110,26 @@ body {
 .page--home .logo {
   width: min(100%, 40rem);
 }
+
+.page--home {
+  transform: translateY(-clamp(1rem, 4vh, 2.5rem));
+}
+
+.page--home__latest {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.page--home__latest a {
+  color: var(--muted-color);
+  text-decoration: none;
+}
+
+.page--home__latest a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
 .page--acknowledgment .logo {
   width: min(100%, 18rem);
 }

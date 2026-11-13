@@ -110,6 +110,9 @@ body {
 .page--home .logo {
   width: min(100%, 40rem);
 }
+.page--acknowledgment .logo {
+  width: min(100%, 18rem);
+}
 
 .page--home .logo,
 .page--acknowledgment .logo {
@@ -118,9 +121,6 @@ body {
   object-position: center;
 }
 
-.page--acknowledgment .logo {
-  width: min(100%, 20rem);
-}
 
 :root[data-theme="dark"] .logo {
   filter: invert(1);

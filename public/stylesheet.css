@@ -107,7 +107,7 @@ body {
   object-fit: contain;
 }
 
-.page--acknowledgment .logo {
+.page--home .logo {
   width: min(100%, 18rem);
 }
 

@@ -3,8 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  max-width: 56rem;
-  margin: 0 auto;
+  width: 100%;
   padding: 1.5rem clamp(1rem, 4vw, 2rem);
 }
 

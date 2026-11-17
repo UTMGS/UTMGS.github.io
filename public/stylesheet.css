@@ -48,6 +48,8 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   min-height: 100svh;
   color: var(--text-color);
@@ -90,8 +92,8 @@ body {
   --page-padding: clamp(1rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: 100svh;
+  flex: 1;
+  min-height: 0;
   place-items: center;
   padding: var(--page-padding);
   justify-content: center;

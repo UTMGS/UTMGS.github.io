@@ -44,14 +44,16 @@ const {
 		</button>
 		{showNav && (
 			<header class="site-header">
-				<a href="/" class="site-header__brand">
-					<img src="/assets/brand/logo.jpg" alt="UTMGS" class="site-header__logo" />
-				</a>
-				<nav aria-label="Main navigation">
-					<a href="/blog/">Blog</a>
-					<a href="https://x.com/UTMGS_SUS" target="_blank" rel="noopener noreferrer">X</a>
-					<a href="/acknowledgment/">Acknowledgment</a>
-				</nav>
+				<div class="site-header__inner">
+					<a href="/" class="site-header__brand">
+						<img src="/assets/brand/logo.jpg" alt="UTMGS" class="site-header__logo" />
+					</a>
+					<nav aria-label="Main navigation">
+						<a href="/blog/">Blog</a>
+						<a href="https://x.com/UTMGS_SUS" target="_blank" rel="noopener noreferrer">X</a>
+						<a href="/acknowledgment/">Acknowledgment</a>
+					</nav>
+				</div>
 			</header>
 		)}
 		<slot />

@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import SiteLayout from '../layouts/SiteLayout.astro';
 
-const latestPost = (await getCollection('blog')).sort(
+const latestPost = (await getCollection('blog')).filter((post) => !post.data.draft).sort(
 	(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 )[0];
 ---

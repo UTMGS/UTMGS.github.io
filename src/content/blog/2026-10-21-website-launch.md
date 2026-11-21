@@ -2,6 +2,7 @@
 title: UTMGSのウェブサイトへようこそ
 description: UTMGSの公式サイトとブログを公開しました。
 pubDate: 2026-10-21
+draft: true
 ---
 
 UTMGSのウェブサイトをご覧いただきありがとうございます。
